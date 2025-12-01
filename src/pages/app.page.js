@@ -1,0 +1,10 @@
+import {HomePage, MainPage, RegisterPage} from './index';
+
+export class App {
+    constructor(page) {
+        this.page = page;
+        this.home = new HomePage(page);
+        this.main = new MainPage(page);
+        this.register = new RegisterPage(page);
+}
+}
