@@ -10,3 +10,4 @@ allure-results
 .allure
 allure-report
 .DS_Store
+tests/extended.spec.js-snapshots
