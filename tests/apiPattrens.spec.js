@@ -3,7 +3,7 @@ import {Api} from '../src/services/api.facede';
 
 let token;
 const url = 'https://apichallenges.eviltester.com/';
-test.describe.only('Challenge with service', () => {
+test.describe('Challenge with service', () => {
     test.beforeAll(async ({ request }, testinfo) => {
 
         // facade
