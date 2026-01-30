@@ -1,0 +1,37 @@
+name: playwright api and ui test
+# Когда запускаем
+on:
+  push:
+    branches:
+      - main
+# ручной запуск
+  workflow_dispatch:
+
+# шпаргалка
+# ${{secrets.SECRETREPOSITORY}}
+# ${{vars.SHAREDVARIABLE}}
+jobs:
+  pw5Tests:
+    runs-on: ubuntu-latest
+      - name: Установка браузеров
+        run: npx playwright install --with-deps
+      - name: Запускаем тесты
+        env:
+          telegramPassword: ${{secrets.SECRETREPOSITORY}}
+          telegramId: ${{vars.SHAREDVARIABLE}}
+        run: npm t
+        #todo унести в package.json
+      - name: Сгенерировать allure 3 отчет в один файл
+        run: npx allure awesome ./allure-results --single-file
+        continue-on-error: true
+        if: always()
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v6.0.0
+        continue-on-error: true
+        if: always()
+        with:
+          name: allure single file
+          path: |
+              allure-report/index.html
+              allure-results
+              playwright-report
