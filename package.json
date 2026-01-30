@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test",
+    "test": "export ENVIROMENT=autoTest && npx playwright test --grep @fast",
     "report": "npx playwright show-report",
     "codegen": "npx playwright codegen",
     "ui": "npx playwright test --ui"

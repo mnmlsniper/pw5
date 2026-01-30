@@ -7,7 +7,11 @@ import { UserBuilder } from '../src/helpers/builders/index';
 
 const url = 'https://realworld.qa.guru/';
 
-test('Пользователь может зарегистрироваться используя email и пароль Page Object паттерны', async ({ page }) => {
+test('Пользователь может зарегистрироваться используя email и пароль Page Object паттерны @fast', async ({ page }) => {
+    console.log('Это пароль');
+    console.log(process.env.telegramPassword);
+    console.log('Это не пароль');
+    console.log(process.env.telegramId);
     await allure.tms("TMS-456", "Related TMS issue");
 
     const user = new UserBuilder().withEmail().withName().withPassword().build();

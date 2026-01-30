@@ -32,6 +32,10 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
     apiUrl : "https://apichallenges.eviltester.com/",
+/*
+  apiUrl : process.env.CI ? "www.api.prod.ru": "https://apichallenges.eviltester.com/",
+*/
+
   },
 
   /* Configure projects for major browsers */
